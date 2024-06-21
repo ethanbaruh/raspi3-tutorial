@@ -128,7 +128,7 @@ Finally the last argument redirects the emulated UART0 to the standard input/out
 sent to the serial line will be displayed, and every key typed in the terminal will be received by the vm. Only works with the
 tutorials 05 and above, as UART1 is *not* redirected by default. For that, you would have to add something like
 `-chardev socket,host=localhost,port=1111,id=aux -serial chardev:aux` (thanks [@godmar](https://github.com/godmar) for the info),
-or simply use two `-serial` arguments (thanks [@cirosantilli](https://github.com/cirosantilli)).
+or simply use two `-serial` arguments (thanks [@cirosantilli](https://github.com/cirosantilli)). If you an encounter a qemu error stating `qemu-system-aarch64: -serial stdio: could not connect serial device to character backend 'stdio'` the simple fix is to change `-serial stdio` to `-serial mon:stdio`.
 
 **!!!WARNING!!!** Qemu emulation is rudimentary, only the most common peripherals are emulated! **!!!WARNING!!!**
 
